@@ -1,3 +1,7 @@
+/node_modules
+.DS_Store
+.vercel
+
+# Herramientas locales de previsualización (no forman parte del sitio)
 .claude/
 .dev-server.js
-node_modules/

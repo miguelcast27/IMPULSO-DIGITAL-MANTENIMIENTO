@@ -1,53 +1,50 @@
 # Academia Impulso Digital — Página de mantenimiento
 
-Landing estática de "en mantenimiento", 100% HTML/CSS/JS vanilla, sin dependencias de build.
+Landing estática de "en mantenimiento". 100% HTML/CSS/JS vanilla, sin build step ni dependencias — `index.html` en la raíz, todos los assets en rutas relativas (`./styles.css`, `./script.js`, `./logo-academia.png`, `./wordmark-academia.png`).
 
 ## Estructura
 
 ```
-index.html               → marcado + <img> del ícono y del wordmark oficiales
-styles.css               → estilos, paleta de marca y animación de entrada
-script.js                → dispara la animación de entrada al cargar
-logo-academia.png        → ícono (búho) del logo oficial
-wordmark-academia.png    → wordmark "Academia Impulso Digital" en la tipografía real de marca
+index.html               → marcado, SVG decorativo de fondo, <img> del ícono y wordmark
+styles.css                → estilos, paleta de marca, animaciones y hover
+script.js                 → dispara la animación de entrada al cargar
+logo-academia.png         → ícono (búho) del logo oficial, fondo transparente
+wordmark-academia.png     → wordmark "Academia Impulso Digital", tipografía real de marca
+vercel.json                → config de deploy (build vacío, sitio estático)
 ```
 
 ## Ver en local
 
-Basta con abrir `index.html` en el navegador, o servirlo con cualquier servidor estático:
+Abrir `index.html` directo en el navegador, o servirlo con cualquier servidor estático (`npx serve .`).
 
+## Deploy en Vercel
+
+**Desde CLI:**
 ```bash
-npx serve .
+npm i -g vercel   # si no la tienes instalada
+vercel login
+vercel            # primera vez: sigue el wizard y confirma el proyecto
+vercel --prod     # despliega a producción
 ```
 
-## Deploy
+**Desde GitHub (recomendado para deploys automáticos):**
+1. Sube este repo a tu cuenta de GitHub (`git push`).
+2. En [vercel.com/new](https://vercel.com/new), importa el repo.
+3. Vercel detecta `vercel.json` — no hace falta tocar build command ni output directory.
+4. Cada push a la rama principal vuelve a desplegar automáticamente.
 
-Es un sitio 100% estático (sin build step), así que cualquiera de estas opciones funciona directo:
+## Dominio personalizado
 
-### Vercel
-```bash
-npx vercel --prod
-```
-O bien: importar el repo en [vercel.com/new](https://vercel.com/new) — no requiere configurar build command ni output directory (déjalos vacíos / "Other").
+En el proyecto dentro de Vercel: **Settings → Domains → Add**, escribe tu dominio (`.io`, `.tech`, `.dev`, etc.) y sigue las instrucciones. Normalmente es uno de estos dos casos:
+- **Dominio raíz** (`tudominio.tech`): Vercel te da un registro `A` → apúntalo a `76.76.21.21` en el DNS de tu proveedor.
+- **Subdominio** (`www.tudominio.tech`): Vercel te da un registro `CNAME` → apúntalo a `cname.vercel-dns.com`.
 
-### Netlify
-Arrastrar la carpeta del proyecto a [app.netlify.com/drop](https://app.netlify.com/drop), o conectar el repo con:
-- Build command: (vacío)
-- Publish directory: `.`
-
-### Cloudflare Pages
-Conectar el repo con:
-- Build command: (vacío)
-- Build output directory: `/`
+La propagación DNS puede tardar desde minutos hasta un par de horas; Vercel emite el certificado SSL automáticamente en cuanto detecta el DNS correcto.
 
 ## Notas
 
-- `logo-academia.png` (ícono) y `wordmark-academia.png` (texto "Academia Impulso Digital") son ambos recortes del material oficial entregado por el cliente, con el fondo blanco eliminado (fondo transparente) para integrarse con el degradado de la página. El ícono lleva `alt=""` (decorativo) porque el wordmark ya aporta el nombre accesible de la marca. El CSS los escala manteniendo su proporción.
-- La fuente **Montserrat** (Google Fonts, pesos 400/600/700) sigue usándose para el resto del texto de la página (título y subtítulo) — se eligió por ser la más parecida a la tipografía del wordmark oficial.
-- La animación de entrada (fade-in + leve desplazamiento hacia arriba, ícono y luego wordmark) respeta `prefers-reduced-motion`.
-- El fondo tiene un degradado sutil blanco → azul muy claro, más una capa decorativa en SVG inline (arcos concéntricos, patrón de circuito, puntos sueltos y cintas de flujo en las esquinas/bordes) a baja opacidad, detrás del contenido (`z-index` menor, `pointer-events: none` en el contenedor). En mobile (`max-width: 640px`) se ocultan los elementos secundarios (`.decor-mobile-hide`) para no saturar la pantalla.
-- **Movimiento ambiental** (siempre activo, salvo `prefers-reduced-motion`): los arcos rotan muy lento (100s/vuelta), los puntos sueltos flotan en vertical con duraciones/delays distintos entre sí, y el circuito + las cintas pulsan de opacidad (15%–35%) — todo animado solo con `transform`/`opacity` para no forzar reflow.
-- **Interacción al pasar el mouse** (solo en dispositivos con hover real, vía `@media (hover: hover) and (pointer: fine)`): cada forma decorativa individual (puntos, nodos, líneas de circuito, cintas) reacciona con un `scale(1.08)` o un cambio de color hacia azul marino, con transición de 350ms. En mobile no aplica (no hay hover), solo queda el movimiento ambiental.
-- Con `prefers-reduced-motion: reduce`, todo el fondo decorativo queda completamente estático: sin rotación, sin flotado, sin pulso, y sin transición de hover (la regla de hover ni siquiera se carga en ese caso).
+- El ícono y el wordmark son recortes del material oficial entregado por el cliente, con el fondo blanco removido. El ícono lleva `alt=""` (decorativo) porque el wordmark ya aporta el nombre accesible de la marca.
+- Fuente **Montserrat** (Google Fonts) — la más parecida a la tipografía del wordmark oficial.
+- El fondo decorativo (arcos, circuito, puntos, cintas) es SVG inline, animado solo con `transform`/`opacity`, con hover sutil por elemento en dispositivos con mouse, y completamente estático si el usuario tiene `prefers-reduced-motion` activado.
 
-Ver [SDD-mantenimiento-impulso-digital.md](../SDD-mantenimiento-impulso-digital.md) para el detalle completo del encargo.
+Ver [SDD-mantenimiento-impulso-digital.md](SDD-mantenimiento-impulso-digital.md) para el detalle completo del encargo original.
