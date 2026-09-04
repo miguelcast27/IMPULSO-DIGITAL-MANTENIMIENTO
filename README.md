@@ -41,7 +41,7 @@ Conectar el repo con:
 
 ## Notas
 
-- **Falta el archivo `logo-academia.png`**: `index.html` referencia `<img src="logo-academia.png">` apuntando al logo oficial de la Academia (el búho con marco azul marino/azul/naranja), pero el archivo de imagen todavía no está en esta carpeta — hay que colocarlo aquí (o en `assets/` ajustando el `src`) antes de hacer deploy. Ideal en PNG con fondo transparente o SVG; el CSS ya lo escala manteniendo su proporción (120px de ancho en mobile, 150px desde 640px), así que cualquier resolución razonable funciona.
+- `logo-academia.png` es el ícono del búho recortado del logo oficial entregado por el cliente (sin el wordmark "Academia Impulso Digital", que se muestra aparte como texto vivo en `index.html` para que quede nítido en cualquier resolución y no se duplique). El CSS lo escala manteniendo su proporción (120px de ancho en mobile, 150px desde 640px).
 - La fuente usada es **Montserrat** (Google Fonts, pesos 400/600/700), elegida por ser la que más se aproxima a la tipografía del banner de marca en LinkedIn ("Aprende con confianza. Impulsa tu futuro.") — confirmar con el cliente si existe una fuente de marca oficial distinta.
 - La animación de entrada del logo (fade-in + leve desplazamiento hacia arriba) respeta `prefers-reduced-motion`.
 
