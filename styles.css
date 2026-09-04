@@ -49,6 +49,90 @@ body {
   }
 }
 
+/* --- Movimiento ambiental (siempre encendido, salvo reduced-motion) --- */
+
+.decor-rotate {
+  transform-origin: 10px 95px;
+  animation-name: decor-rotate;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes decor-rotate {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.decor-dot-float {
+  animation-name: decor-dot-float;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes decor-dot-float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-7px); }
+}
+
+.decor-pulse {
+  animation-name: decor-pulse;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes decor-pulse {
+  0%, 100% { opacity: 0.15; }
+  50%      { opacity: 0.35; }
+}
+
+/* Los rombos de los nodos de circuito llevan su rotación fija en CSS
+   (en vez del atributo transform del SVG) para poder combinarla con
+   el scale del hover sin que una pise a la otra. */
+.decor-diamond {
+  transform-box: fill-box;
+  transform-origin: 50% 50%;
+  transform: rotate(45deg);
+}
+
+/* --- Interacción con el mouse (solo dispositivos con hover real) --- */
+
+.bg-decor .decor-hoverable,
+.bg-decor .decor-hoverable-line {
+  pointer-events: visiblePainted;
+}
+
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .decor-hoverable {
+    transform-box: fill-box;
+    transform-origin: 50% 50%;
+    transition: transform 350ms ease-out;
+  }
+
+  .decor-hoverable:hover {
+    transform: scale(1.08);
+  }
+
+  .decor-diamond:hover {
+    transform: rotate(45deg) scale(1.08);
+  }
+
+  .decor-hoverable-line {
+    transition: stroke 350ms ease-out;
+  }
+
+  .decor-hoverable-line:hover {
+    stroke: var(--azul-marino);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .decor-rotate,
+  .decor-dot-float,
+  .decor-pulse {
+    animation: none !important;
+  }
+}
+
 .page {
   position: relative;
   z-index: 1;
