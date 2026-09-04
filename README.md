@@ -42,8 +42,9 @@ Conectar el repo con:
 
 ## Notas
 
-- `logo-academia.png` (ícono) y `wordmark-academia.png` (texto "Academia Impulso Digital") son ambos recortes del material oficial entregado por el cliente — cada uno recortado de su imagen fuente para quitar el márgen blanco sobrante. El ícono lleva `alt=""` (decorativo) porque el wordmark ya aporta el nombre accesible de la marca. El CSS los escala manteniendo su proporción.
+- `logo-academia.png` (ícono) y `wordmark-academia.png` (texto "Academia Impulso Digital") son ambos recortes del material oficial entregado por el cliente, con el fondo blanco eliminado (fondo transparente) para integrarse con el degradado de la página. El ícono lleva `alt=""` (decorativo) porque el wordmark ya aporta el nombre accesible de la marca. El CSS los escala manteniendo su proporción.
 - La fuente **Montserrat** (Google Fonts, pesos 400/600/700) sigue usándose para el resto del texto de la página (título y subtítulo) — se eligió por ser la más parecida a la tipografía del wordmark oficial.
 - La animación de entrada (fade-in + leve desplazamiento hacia arriba, ícono y luego wordmark) respeta `prefers-reduced-motion`.
+- El fondo tiene un degradado sutil blanco → azul muy claro, más una capa decorativa en SVG inline (arcos concéntricos, patrón de circuito, puntos sueltos y cintas de flujo en las esquinas/bordes) a baja opacidad, puramente estática y detrás del contenido (`z-index` menor, `pointer-events: none`). En mobile (`max-width: 640px`) se ocultan los elementos secundarios (`.decor-mobile-hide`) para no saturar la pantalla.
 
 Ver [SDD-mantenimiento-impulso-digital.md](../SDD-mantenimiento-impulso-digital.md) para el detalle completo del encargo.
