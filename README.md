@@ -5,9 +5,10 @@ Landing estática de "en mantenimiento", 100% HTML/CSS/JS vanilla, sin dependenc
 ## Estructura
 
 ```
-index.html   → marcado y búho animado (SVG inline)
-styles.css   → estilos, paleta de marca y animaciones
-script.js    → dispara la animación de entrada al cargar
+index.html          → marcado + <img> del logo oficial
+styles.css          → estilos, paleta de marca y animación de entrada del logo
+script.js           → dispara la animación de entrada al cargar
+logo-academia.png   → logo oficial de Academia Impulso Digital (ver nota abajo)
 ```
 
 ## Ver en local
@@ -40,8 +41,8 @@ Conectar el repo con:
 
 ## Notas
 
-- El logo del búho está dibujado como SVG inline en `index.html` (no depende de un asset externo), siguiendo la paleta de marca definida en el SDD. Si la Academia entrega el logo oficial en SVG/PNG, puede reemplazarse fácilmente por ese asset.
-- La fuente usada es **Poppins** (Google Fonts) como aproximación segura a la tipografía de marca — ver sección 5 del SDD para confirmar con el cliente si existe una fuente oficial distinta.
-- Las animaciones respetan `prefers-reduced-motion`.
+- **Falta el archivo `logo-academia.png`**: `index.html` referencia `<img src="logo-academia.png">` apuntando al logo oficial de la Academia (el búho con marco azul marino/azul/naranja), pero el archivo de imagen todavía no está en esta carpeta — hay que colocarlo aquí (o en `assets/` ajustando el `src`) antes de hacer deploy. Ideal en PNG con fondo transparente o SVG; el CSS ya lo escala manteniendo su proporción (120px de ancho en mobile, 150px desde 640px), así que cualquier resolución razonable funciona.
+- La fuente usada es **Montserrat** (Google Fonts, pesos 400/600/700), elegida por ser la que más se aproxima a la tipografía del banner de marca en LinkedIn ("Aprende con confianza. Impulsa tu futuro.") — confirmar con el cliente si existe una fuente de marca oficial distinta.
+- La animación de entrada del logo (fade-in + leve desplazamiento hacia arriba) respeta `prefers-reduced-motion`.
 
 Ver [SDD-mantenimiento-impulso-digital.md](../SDD-mantenimiento-impulso-digital.md) para el detalle completo del encargo.
