@@ -5,10 +5,11 @@ Landing estática de "en mantenimiento", 100% HTML/CSS/JS vanilla, sin dependenc
 ## Estructura
 
 ```
-index.html          → marcado + <img> del logo oficial
-styles.css          → estilos, paleta de marca y animación de entrada del logo
-script.js           → dispara la animación de entrada al cargar
-logo-academia.png   → logo oficial de Academia Impulso Digital (ver nota abajo)
+index.html               → marcado + <img> del ícono y del wordmark oficiales
+styles.css               → estilos, paleta de marca y animación de entrada
+script.js                → dispara la animación de entrada al cargar
+logo-academia.png        → ícono (búho) del logo oficial
+wordmark-academia.png    → wordmark "Academia Impulso Digital" en la tipografía real de marca
 ```
 
 ## Ver en local
@@ -41,8 +42,8 @@ Conectar el repo con:
 
 ## Notas
 
-- `logo-academia.png` es el ícono del búho recortado del logo oficial entregado por el cliente (sin el wordmark "Academia Impulso Digital", que se muestra aparte como texto vivo en `index.html` para que quede nítido en cualquier resolución y no se duplique). El CSS lo escala manteniendo su proporción (120px de ancho en mobile, 150px desde 640px).
-- La fuente usada es **Montserrat** (Google Fonts, pesos 400/600/700), elegida por ser la que más se aproxima a la tipografía del banner de marca en LinkedIn ("Aprende con confianza. Impulsa tu futuro.") — confirmar con el cliente si existe una fuente de marca oficial distinta.
-- La animación de entrada del logo (fade-in + leve desplazamiento hacia arriba) respeta `prefers-reduced-motion`.
+- `logo-academia.png` (ícono) y `wordmark-academia.png` (texto "Academia Impulso Digital") son ambos recortes del material oficial entregado por el cliente — cada uno recortado de su imagen fuente para quitar el márgen blanco sobrante. El ícono lleva `alt=""` (decorativo) porque el wordmark ya aporta el nombre accesible de la marca. El CSS los escala manteniendo su proporción.
+- La fuente **Montserrat** (Google Fonts, pesos 400/600/700) sigue usándose para el resto del texto de la página (título y subtítulo) — se eligió por ser la más parecida a la tipografía del wordmark oficial.
+- La animación de entrada (fade-in + leve desplazamiento hacia arriba, ícono y luego wordmark) respeta `prefers-reduced-motion`.
 
 Ver [SDD-mantenimiento-impulso-digital.md](../SDD-mantenimiento-impulso-digital.md) para el detalle completo del encargo.
