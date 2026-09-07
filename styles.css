@@ -8,6 +8,22 @@
   --naranja: #F5A623;
   --gris-texto: #5B6472;
   --fondo: #FFFFFF;
+
+  /* Amplitud del movimiento ambiental del fondo. Tablet/desktop usan
+     estos valores tal cual; mobile los reduce (ver media query más
+     abajo) para que el movimiento siga viéndose sin saturar una
+     pantalla chica. */
+  --decor-dot-amp: -14px;
+  --decor-ribbon-y: -45px;
+  --decor-ribbon-scale: 1.05;
+}
+
+@media (max-width: 640px) {
+  :root {
+    --decor-dot-amp: -9px;
+    --decor-ribbon-y: -26px;
+    --decor-ribbon-scale: 1.035;
+  }
 }
 
 * {
@@ -56,6 +72,7 @@ body {
   animation-name: decor-rotate;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
+  will-change: transform;
 }
 
 @keyframes decor-rotate {
@@ -67,11 +84,12 @@ body {
   animation-name: decor-dot-float;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
+  will-change: transform;
 }
 
 @keyframes decor-dot-float {
   0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(-14px); }
+  50%      { transform: translateY(var(--decor-dot-amp)); }
 }
 
 .decor-pulse {
@@ -93,11 +111,12 @@ body {
   animation-name: decor-pulse, decor-ribbon-move;
   animation-timing-function: ease-in-out, ease-in-out;
   animation-iteration-count: infinite, infinite;
+  will-change: transform, opacity;
 }
 
 @keyframes decor-ribbon-move {
   0%, 100% { transform: translateY(0) scale(1); }
-  50%      { transform: translateY(-45px) scale(1.05); }
+  50%      { transform: translateY(var(--decor-ribbon-y)) scale(var(--decor-ribbon-scale)); }
 }
 
 /* Los rombos de los nodos de circuito llevan su rotación fija en CSS
