@@ -71,7 +71,7 @@ body {
 
 @keyframes decor-dot-float {
   0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(-7px); }
+  50%      { transform: translateY(-14px); }
 }
 
 .decor-pulse {
@@ -81,8 +81,23 @@ body {
 }
 
 @keyframes decor-pulse {
-  0%, 100% { opacity: 0.15; }
-  50%      { opacity: 0.35; }
+  0%, 100% { opacity: 0.2; }
+  50%      { opacity: 0.45; }
+}
+
+/* Cintas de flujo: además del pulso de opacidad, se desplazan y
+   "respiran" en escala — el movimiento principal de esa esquina. */
+.decor-ribbon-anim {
+  transform-box: fill-box;
+  transform-origin: 50% 50%;
+  animation-name: decor-pulse, decor-ribbon-move;
+  animation-timing-function: ease-in-out, ease-in-out;
+  animation-iteration-count: infinite, infinite;
+}
+
+@keyframes decor-ribbon-move {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50%      { transform: translateY(-45px) scale(1.05); }
 }
 
 /* Los rombos de los nodos de circuito llevan su rotación fija en CSS
@@ -128,7 +143,8 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .decor-rotate,
   .decor-dot-float,
-  .decor-pulse {
+  .decor-pulse,
+  .decor-ribbon-anim {
     animation: none !important;
   }
 }

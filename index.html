@@ -18,15 +18,18 @@
   <svg class="bg-decor" viewBox="0 0 1440 1100" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
 
     <!-- Esquina superior izquierda: arcos concéntricos (rotación ambiental lenta) -->
-    <g class="decor-arcs-tl decor-rotate" fill="none" stroke="#1E5FBF" style="animation-duration: 100s;">
-      <circle class="decor-hoverable" cx="10" cy="95" r="110" stroke-width="2" opacity="0.18" />
-      <circle class="decor-hoverable" cx="10" cy="95" r="180" stroke-width="10" opacity="0.16" />
-      <circle class="decor-hoverable" cx="10" cy="95" r="250" stroke-width="2" opacity="0.16" />
-      <circle class="decor-hoverable" cx="10" cy="95" r="325" stroke-width="1.5" stroke-dasharray="2 10" opacity="0.3" />
+    <g class="decor-arcs-tl decor-rotate" fill="none" stroke="#1E5FBF" stroke-linecap="round" style="animation-duration: 25s;">
+      <!-- Arcos parciales (no círculos completos): un círculo entero es rotacionalmente
+           invariante y no se vería girar aunque rote. El hueco de cada arco es lo que
+           hace visible el giro. -->
+      <path class="decor-hoverable" d="M 113.4 132.6 A 110 110 0 1 1 65 -0.3" stroke-width="3" opacity="0.35" />
+      <path class="decor-hoverable" d="M 187.3 126.2 A 180 180 0 1 1 -145.9 5" stroke-width="12" opacity="0.4" />
+      <path class="decor-hoverable" d="M 251.5 159.7 A 250 250 0 1 1 236.6 -11.7" stroke-width="3" opacity="0.4" />
+      <circle class="decor-hoverable" cx="10" cy="95" r="325" stroke-width="1.5" stroke-dasharray="2 10" opacity="0.45" />
     </g>
 
     <!-- Esquina superior derecha: patrón de circuito (pulso de opacidad ambiental) -->
-    <g class="decor-circuit decor-pulse" fill="none" stroke="#1E5FBF" stroke-width="2" opacity="0.28" style="animation-duration: 7s;">
+    <g class="decor-circuit decor-pulse" fill="none" stroke="#1E5FBF" stroke-width="2" opacity="0.32" style="animation-duration: 5s;">
       <path class="decor-hoverable-line" d="M1170 190 L1170 115 L1235 115 L1235 60 L1300 60" />
       <path class="decor-hoverable-line" d="M1355 10 L1355 72 L1415 72 L1415 145" />
       <g class="decor-circuit-nodes" stroke="none" fill="#1E5FBF">
@@ -48,29 +51,29 @@
 
     <!-- Puntos sueltos, esparcidos (leve flotado ambiental, cada uno con su propio ritmo) -->
     <g class="decor-dots" fill="#1E5FBF">
-      <g class="decor-dot-float" style="animation-duration: 8s; animation-delay: 0s;">
-        <circle class="decor-hoverable" cx="1390" cy="600" r="8" fill="none" stroke="#1E5FBF" stroke-width="2" opacity="0.22" />
+      <g class="decor-dot-float" style="animation-duration: 5s; animation-delay: 0s;">
+        <circle class="decor-hoverable" cx="1390" cy="600" r="8" fill="none" stroke="#1E5FBF" stroke-width="2" opacity="0.35" />
       </g>
-      <g class="decor-dot-float decor-mobile-hide" style="animation-duration: 6.5s; animation-delay: 1.5s;">
-        <circle class="decor-hoverable" cx="1065" cy="940" r="6" opacity="0.25" />
+      <g class="decor-dot-float decor-mobile-hide" style="animation-duration: 4.4s; animation-delay: 1.5s;">
+        <circle class="decor-hoverable" cx="1065" cy="940" r="6" opacity="0.35" />
       </g>
-      <g class="decor-dot-float" style="animation-duration: 7.5s; animation-delay: 0.8s;">
-        <circle class="decor-hoverable" cx="1050" cy="1030" r="4" opacity="0.3" />
+      <g class="decor-dot-float" style="animation-duration: 5.6s; animation-delay: 0.8s;">
+        <circle class="decor-hoverable" cx="1050" cy="1030" r="4" opacity="0.4" />
       </g>
-      <g class="decor-dot-float" style="animation-duration: 9s; animation-delay: 2.2s;">
-        <circle class="decor-hoverable" cx="30" cy="780" r="5" opacity="0.25" />
+      <g class="decor-dot-float" style="animation-duration: 4.8s; animation-delay: 2.2s;">
+        <circle class="decor-hoverable" cx="30" cy="780" r="5" opacity="0.35" />
       </g>
-      <g class="decor-dot-float decor-mobile-hide" style="animation-duration: 6s; animation-delay: 3s;">
-        <circle class="decor-hoverable" cx="60" cy="850" r="7" fill="none" stroke="#1E5FBF" stroke-width="2" opacity="0.2" />
+      <g class="decor-dot-float decor-mobile-hide" style="animation-duration: 4s; animation-delay: 3s;">
+        <circle class="decor-hoverable" cx="60" cy="850" r="7" fill="none" stroke="#1E5FBF" stroke-width="2" opacity="0.32" />
       </g>
-      <g class="decor-dot-float" style="animation-duration: 7s; animation-delay: 1s;">
-        <circle class="decor-hoverable" cx="18" cy="378" r="5" opacity="0.3" />
+      <g class="decor-dot-float" style="animation-duration: 5.2s; animation-delay: 1s;">
+        <circle class="decor-hoverable" cx="18" cy="378" r="5" opacity="0.4" />
       </g>
-      <g class="decor-dot-float" style="animation-duration: 8.5s; animation-delay: 0.4s;">
-        <circle class="decor-hoverable" cx="82" cy="396" r="7" fill="none" stroke="#1E5FBF" stroke-width="2" opacity="0.25" />
+      <g class="decor-dot-float" style="animation-duration: 6s; animation-delay: 0.4s;">
+        <circle class="decor-hoverable" cx="82" cy="396" r="7" fill="none" stroke="#1E5FBF" stroke-width="2" opacity="0.35" />
       </g>
-      <g class="decor-dot-float" style="animation-duration: 6.8s; animation-delay: 2.6s;">
-        <circle class="decor-hoverable" cx="412" cy="104" r="4" opacity="0.25" />
+      <g class="decor-dot-float" style="animation-duration: 4.6s; animation-delay: 2.6s;">
+        <circle class="decor-hoverable" cx="412" cy="104" r="4" opacity="0.35" />
       </g>
     </g>
 
@@ -83,8 +86,8 @@
 
     <!-- Esquina inferior derecha: cintas de flujo (pulso de opacidad ambiental) -->
     <g class="decor-ribbons" fill="none" stroke-linecap="round">
-      <path class="decor-hoverable-line decor-pulse" style="animation-duration: 8s;" d="M980 1100 C1080 1000, 1150 900, 1220 800 C1280 720, 1350 680, 1440 660" stroke="#BFD6F5" stroke-width="70" opacity="0.22" />
-      <path class="decor-hoverable-line decor-pulse decor-mobile-hide" style="animation-duration: 6.5s; animation-delay: 1.2s;" d="M1040 1100 C1130 990, 1200 890, 1270 790 C1320 720, 1380 690, 1440 700" stroke="#1E5FBF" stroke-width="34" opacity="0.3" />
+      <path class="decor-hoverable-line decor-ribbon-anim" style="animation-duration: 7s, 8s;" d="M980 1100 C1080 1000, 1150 900, 1220 800 C1280 720, 1350 680, 1440 660" stroke="#BFD6F5" stroke-width="70" opacity="0.35" />
+      <path class="decor-hoverable-line decor-ribbon-anim decor-mobile-hide" style="animation-duration: 6s, 7s; animation-delay: 0.6s, 1s;" d="M1040 1100 C1130 990, 1200 890, 1270 790 C1320 720, 1380 690, 1440 700" stroke="#1E5FBF" stroke-width="34" opacity="0.4" />
     </g>
 
   </svg>

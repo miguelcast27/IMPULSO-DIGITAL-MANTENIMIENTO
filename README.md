@@ -45,6 +45,6 @@ La propagación DNS puede tardar desde minutos hasta un par de horas; Vercel emi
 
 - El ícono y el wordmark son recortes del material oficial entregado por el cliente, con el fondo blanco removido. El ícono lleva `alt=""` (decorativo) porque el wordmark ya aporta el nombre accesible de la marca.
 - Fuente **Montserrat** (Google Fonts) — la más parecida a la tipografía del wordmark oficial.
-- El fondo decorativo (arcos, circuito, puntos, cintas) es SVG inline, animado solo con `transform`/`opacity`, con hover sutil por elemento en dispositivos con mouse, y completamente estático si el usuario tiene `prefers-reduced-motion` activado.
+- El fondo decorativo (arcos, circuito, puntos, cintas) es SVG inline, animado solo con `transform`/`opacity`, con hover sutil por elemento en dispositivos con mouse, y completamente estático si el usuario tiene `prefers-reduced-motion` activado. Los arcos de la esquina superior izquierda son arcos parciales (no círculos completos) a propósito: un círculo entero es rotacionalmente invariante y no se vería girar aunque rote — el hueco es lo que hace visible el movimiento.
 
 Ver [SDD-mantenimiento-impulso-digital.md](SDD-mantenimiento-impulso-digital.md) para el detalle completo del encargo original.
